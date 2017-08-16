@@ -1,27 +1,16 @@
 {
-  "name": "vendor/package",
-  "description": "",
-  "keywords": [],
-  "homepage": "",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "",
-      "email": ""
+    "name": "Yamsafer/name-translation",
+    "description": "package to translate names with one of the two ways 1.Rosette 2.Google Translate",
+    "require":{
+        "php": ">=5.6.4",
+        "illuminate/support": "~5.0"
+    },
+    "require-dev":{
+        "phpunit/phpunit": "5.0.*"
+    },
+    "autoload":{
+        "psr-4":{
+            "NameTranslation\\": "src/NameTranslation"
+        }
     }
-  ],
-  "require": {
-    "php": ">=5.4.0",
-    "illuminate/config": "~5.0",
-    "illuminate/support": "~5.0"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "~4.0"
-  },
-  "autoload": {
-    "psr-4": {
-      "Vendor\\Package\\": "src/"
-    }
-  },
-  "minimum-stability": "dev"
 }
