@@ -16,3 +16,4 @@ class TranslationFacade extends Facade
         return 'NameTranslation';
     }
 }
+
