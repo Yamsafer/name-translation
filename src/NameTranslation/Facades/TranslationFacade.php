@@ -13,7 +13,7 @@ class TranslationFacade extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'NameTranslation';
+        return 'name-translation';
     }
 }
 
