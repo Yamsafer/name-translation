@@ -1,7 +1,7 @@
 <?php namespace NameTranslation\TranslationDriver;
 
-use \NameTranslation\TranslationInterface;
-use \NameTranslation\Client;
+use NameTranslation\Client;
+use NameTranslation\TranslationInterface;
 
 class GoogleTranslation implements TranslationInterface
 {
@@ -46,7 +46,7 @@ class GoogleTranslation implements TranslationInterface
     {
         $this->client = $client;
         $this->app = $app;
-        $this->url   = $this->client->getUrl($this->app, $this->driver);
+        $this->url = $this->client->getUrl($this->app, $this->driver);
         $this->key = $this->client->getKey($this->app, $this->driver);
     }
 
@@ -61,12 +61,13 @@ class GoogleTranslation implements TranslationInterface
     public function translate($name, $source = 'ar', $target = 'en')
     {
         $request_url = $this->url.$this->key;
-        $headers = ["Content-Type:application/json"];
+        $headers = ['Content-Type:application/json'];
         $body = [
-           "q" => $name,
-           "target" => $target,
-           "source"=> $source
+           'q' => $name,
+           'target' => $target,
+           'source' => $source
         ];
+
         $translation = $this->handelRequest($request_url, $headers, $body);
         $translation = $translation['data']['translations'][0]['translatedText'];
 

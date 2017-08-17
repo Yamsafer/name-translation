@@ -1,7 +1,9 @@
-<?php namespace NameTranslation\TranslationDriver;
+<?php
 
-use \NameTranslation\TranslationInterface;
-use \NameTranslation\Client;
+namespace NameTranslation\TranslationDriver;
+
+use NameTranslation\Client;
+use NameTranslation\TranslationInterface;
 
 class RosetteTranslation implements TranslationInterface
 {
@@ -44,10 +46,10 @@ class RosetteTranslation implements TranslationInterface
      */
     public function __construct(Client $client, $app)
     {
-      $this->app = $app;
-      $this->client = $client;
-      $this->url   = $this->client->getUrl($this->app, $this->driver);
-      $this->key = $this->client->getKey($this->app, $this->driver);
+        $this->app = $app;
+        $this->client = $client;
+        $this->url = $this->client->getUrl($this->app, $this->driver);
+        $this->key = $this->client->getKey($this->app, $this->driver);
     }
 
     /**
@@ -60,16 +62,17 @@ class RosetteTranslation implements TranslationInterface
      */
     public function translate($name, $source = 'ar', $target = 'eng')
     {
-      $headers = ["Content-Type:application/json", "X-RosetteAPI-Key:".$this->key];
-      $body = [
-           "name" => $name,
-           "targetLanguage" => $target
-      ];
-      $request_url = $this->url;
-      $translation  = $this->handelRequest($request_url, $headers, $body);
-      $translation = $translation['translation'];
+        $headers = ['Content-Type:application/json', 'X-RosetteAPI-Key:'.$this->key];
+        $body = [
+            'name' => $name,
+            'targetLanguage' => $target
+        ];
 
-      return $translation;
+        $request_url = $this->url;
+        $translation = $this->handelRequest($request_url, $headers, $body);
+        $translation = $translation['translation'];
+
+        return $translation;
     }
 
     /**
@@ -83,10 +86,10 @@ class RosetteTranslation implements TranslationInterface
      */
     public function handelRequest($request_url, $headers, $body)
     {
-      $handle = $this->client->constructRequest($request_url, $headers, $body);
-      $responseDecoded = $this->client->getResponse($handle);
-      $responseCode = $this->client->close($handle);
+        $handle = $this->client->constructRequest($request_url, $headers, $body);
+        $responseDecoded = $this->client->getResponse($handle);
+        $responseCode = $this->client->close($handle);
 
-      return $responseDecoded;
+        return $responseDecoded;
     }
 }
