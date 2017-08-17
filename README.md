@@ -35,7 +35,7 @@ Also for the tests,you need to have the following in the require-dev:
 Also, the test configuration includes the code coverage which can be enabled if you have Xdebug in your system. Xdebug can be installed via brew install:
 
 
-brew install <php-version>-xdebug
+brew install < php-version >-xdebug
 
 eg.
 
