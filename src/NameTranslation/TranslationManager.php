@@ -1,4 +1,6 @@
-<?php namespace NameTranslation;
+<?php
+
+namespace NameTranslation;
 
 class TranslationManager
 {
@@ -55,13 +57,14 @@ class TranslationManager
      */
     public function connection($name = null)
     {
-        if(!isset($name) || $name==null){
+        if (!isset($name) || $name==null) {
             $this->connection = $this->getDefaultDriver();
-        }
-        else{
+        } else {
             $this->connection = $name;
         }
-        $class = "\NameTranslation\TranslationDriver\\".$this->connection."Translation";
+
+        $class = '\NameTranslation\TranslationDriver\\'.$this->connection.'Translation';
+
         return new $class(new Client(), $this->app);
     }
 
