@@ -21,5 +21,5 @@ Interface TranslationInterface
      * @param  string $body Requset Body
      * @return Json Object The Requset's response
      */
-    public function handelRequest($request_url, $headers, $body);
+    public function handelRequest($requestUrl, $headers, $body);
 }

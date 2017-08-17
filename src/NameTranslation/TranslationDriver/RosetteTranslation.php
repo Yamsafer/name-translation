@@ -11,7 +11,7 @@ class RosetteTranslation implements TranslationInterface
      * The driver that is constructed in this class
      * @var string
      */
-    protected $driver = 'Rosette';
+    protected $driver = 'rosette';
 
     /**
     * The application instance.
@@ -68,8 +68,8 @@ class RosetteTranslation implements TranslationInterface
             'targetLanguage' => $target
         ];
 
-        $request_url = $this->url;
-        $translation = $this->handelRequest($request_url, $headers, $body);
+        $requestUrl = $this->url;
+        $translation = $this->handelRequest($requestUrl, $headers, $body);
         $translation = $translation['translation'];
 
         return $translation;
@@ -79,14 +79,14 @@ class RosetteTranslation implements TranslationInterface
      * Handle the Http POST Request with the given url, header, body and return
      * the request response decoded with JSON
      *
-     * @param  string $request_url Request URL
+     * @param  string $requestUrl Request URL
      * @param  string $headers Requset Header
      * @param  string $body Requset Body
      * @return Json Object The Requset's response
      */
-    public function handelRequest($request_url, $headers, $body)
+    public function handelRequest($requestUrl, $headers, $body)
     {
-        $handle = $this->client->constructRequest($request_url, $headers, $body);
+        $handle = $this->client->constructRequest($requestUrl, $headers, $body);
         $responseDecoded = $this->client->getResponse($handle);
         $responseCode = $this->client->close($handle);
 

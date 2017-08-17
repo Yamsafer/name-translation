@@ -1,4 +1,6 @@
-<?php namespace NameTranslation\TranslationDriver;
+<?php
+
+namespace NameTranslation\TranslationDriver;
 
 use NameTranslation\Client;
 use NameTranslation\TranslationInterface;
@@ -9,7 +11,7 @@ class GoogleTranslation implements TranslationInterface
      * The driver that is constructed in this class
      * @var string
      */
-    protected $driver = 'Google';
+    protected $driver = 'google';
 
     /**
     * The application instance.
@@ -60,7 +62,7 @@ class GoogleTranslation implements TranslationInterface
      */
     public function translate($name, $source = 'ar', $target = 'en')
     {
-        $request_url = $this->url.$this->key;
+        $requestUrl = $this->url.$this->key;
         $headers = ['Content-Type:application/json'];
         $body = [
            'q' => $name,
@@ -68,7 +70,7 @@ class GoogleTranslation implements TranslationInterface
            'source' => $source
         ];
 
-        $translation = $this->handelRequest($request_url, $headers, $body);
+        $translation = $this->handelRequest($requestUrl, $headers, $body);
         $translation = $translation['data']['translations'][0]['translatedText'];
 
         return $translation;
@@ -78,14 +80,14 @@ class GoogleTranslation implements TranslationInterface
      * Handle the Http POST Request with the given url, header, body and return
      * the request response decoded with JSON
      *
-     * @param  string $request_url Request URL
+     * @param  string $requestUrl Request URL
      * @param  string $headers Requset Header
      * @param  string $body Requset Body
      * @return Json Object The Requset's response
      */
-    public function handelRequest($request_url, $headers, $body)
+    public function handelRequest($requestUrl, $headers, $body)
     {
-        $handle = $this->client->constructRequest($request_url, $headers, $body);
+        $handle = $this->client->constructRequest($requestUrl, $headers, $body);
         $responseDecoded = $this->client->getResponse($handle);
         $responseCode = $this->client->close($handle);
 

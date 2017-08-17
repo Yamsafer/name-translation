@@ -35,7 +35,7 @@ class TranslationManager
      */
     public function getDefaultDriver()
     {
-        return $this->app['config']['translation.default'];
+        return $this->app['config']['name-translation.default'];
     }
 
     /**
@@ -46,7 +46,7 @@ class TranslationManager
      */
     public function setDefaultDriver($name)
     {
-        $this->app['config']['translation.default'] = $name;
+        $this->app['config']['name-translation.default'] = $name;
     }
 
     /**
@@ -57,13 +57,13 @@ class TranslationManager
      */
     public function connection($name = null)
     {
-        if (!isset($name) || $name==null) {
+        if (!isset($name) || $name == null) {
             $this->connection = $this->getDefaultDriver();
         } else {
             $this->connection = $name;
         }
 
-        $class = '\NameTranslation\TranslationDriver\\'.$this->connection.'Translation';
+        $class = '\NameTranslation\TranslationDriver\\'.ucfirst($this->connection).'Translation';
 
         return new $class(new Client(), $this->app);
     }

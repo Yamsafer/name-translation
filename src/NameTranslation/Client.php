@@ -26,7 +26,7 @@ class Client
      */
     public function  getUrl($app, $driver)
     {
-        return $app['config']['translation.connections'][$driver]['url'];
+        return $app['config']['name-translation.connections'][$driver]['url'];
     }
 
     /**
@@ -38,7 +38,7 @@ class Client
      */
     public function  getKey($app, $driver)
     {
-        return $app['config']['translation.connections'][$driver]['key'];
+        return $app['config']['name-translation.connections'][$driver]['key'];
     }
 
     /**
