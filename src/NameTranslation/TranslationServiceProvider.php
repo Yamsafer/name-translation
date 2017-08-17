@@ -1,17 +1,12 @@
-<?php namespace NameTranslation;
+<?php
 
-use Illuminate\Support\ServiceProvider ;
+namespace NameTranslation;
+
 use NameTranslation\TranslationManager;
+use Illuminate\Support\ServiceProvider;
 
-class TranslationServiceProvider extends ServiceProvider {
-
-    /**
-     * Indicates if loading of the provider is deferred.
-     *
-     * @var bool
-     */
-    protected $defer = false;
-
+class TranslationServiceProvider extends ServiceProvider
+{
     /**
      * Bootstrap the application events.
      *
@@ -48,15 +43,5 @@ class TranslationServiceProvider extends ServiceProvider {
         $this->app->singleton(Translation::class, function ($app) {
             return new NameTranslation\TranslationManager($app);
         });
-    }
-
-    /**
-     * Get the services provided by the provider.
-     *
-     * @return array
-     */
-    public function provides()
-    {
-        return [];
     }
 }

@@ -1,4 +1,6 @@
-<?php namespace NameTranslation\Facades;
+<?php 
+
+namespace NameTranslation\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
@@ -11,6 +13,7 @@ class TranslationFacade extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'Translation';
+        return 'name-translation';
     }
 }
+

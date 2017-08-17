@@ -1,4 +1,6 @@
-<?php  namespace NameTranslation;
+<?php
+
+namespace NameTranslation;
 
 class Client
 {
@@ -28,7 +30,7 @@ class Client
     }
 
     /**
-     *Get the key for the given diver from the configuration file
+     * Get the key for the given diver from the configuration file
      *
      * @param  \Illuminate\Foundation\Application $app
      * @param  string $driver The given driver
@@ -40,7 +42,7 @@ class Client
     }
 
     /**
-     *Initialize a cURL session with the given settings for the header and post fields
+     * Initialize a cURL session with the given settings for the header and post fields
      *
      * @param  string $url The Http post requset API url
      * @param  array $header The Http post request headers
@@ -57,7 +59,7 @@ class Client
     }
 
     /**
-     *Execute the given cURL session
+     * Execute the given cURL session
      *
      * @param  curl handel $handle
      * @return JSON Object Response for the Http request
