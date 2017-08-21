@@ -1,6 +1,6 @@
 # name-translation
 
-Transliterate the names in your content, don’t translate
+Transliterate the names in your content, don’t translate.
 
 
 ## Getting Started
