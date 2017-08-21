@@ -2,6 +2,7 @@
 
 namespace NameTranslation\TranslationDriver;
 
+use Illuminate\Support\Arr;
 use NameTranslation\Client;
 use NameTranslation\TranslationInterface;
 
@@ -22,18 +23,21 @@ class GoogleTranslation implements TranslationInterface
 
     /**
      * The driver API url
+     *
      * @var string
      */
     protected $url;
 
     /**
      * The driver API KEY
+     *
      * @var string
      */
     protected $key;
 
     /**
      * The Client
+     *
      * @var Client
      */
     protected $client;
@@ -71,7 +75,7 @@ class GoogleTranslation implements TranslationInterface
         ];
 
         $translation = $this->handelRequest($requestUrl, $headers, $body);
-        $translation = $translation['data']['translations'][0]['translatedText'];
+        $translation = Arr::get($translation, 'data.translations.0.translatedText');
 
         return $translation;
     }
@@ -89,7 +93,7 @@ class GoogleTranslation implements TranslationInterface
     {
         $handle = $this->client->constructRequest($requestUrl, $headers, $body);
         $responseDecoded = $this->client->getResponse($handle);
-        $responseCode = $this->client->close($handle);
+        curl_getinfo($handle, CURLINFO_HTTP_CODE);
 
         return $responseDecoded;
     }

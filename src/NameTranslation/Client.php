@@ -5,19 +5,6 @@ namespace NameTranslation;
 class Client
 {
     /**
-     * Get HTTP code and Closes the given cURL session and frees all resources
-     *
-     * @param cURL handle $handel
-     * @return integer Last received HTTP code
-     */
-    public function close($handle)
-    {
-        $responseCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
-        curl_close($handle);
-        return $responseCode;
-    }
-
-    /**
      * Get the url for the given diver from the configuration file
      *
      * @param  \Illuminate\Foundation\Application $app
@@ -38,7 +25,12 @@ class Client
      */
     public function  getKey($app, $driver)
     {
-        return $app['config']['name-translation.connections'][$driver]['key'];
+        $key = $app['config']['name-translation.connections'][$driver]['key'];
+        if (empty($key)) {
+            throw new Exception("API Key is not found");
+        }
+
+        return  $key;
     }
 
     /**

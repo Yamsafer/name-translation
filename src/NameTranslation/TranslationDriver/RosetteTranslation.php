@@ -2,6 +2,7 @@
 
 namespace NameTranslation\TranslationDriver;
 
+use Illuminate\Support\Arr;
 use NameTranslation\Client;
 use NameTranslation\TranslationInterface;
 
@@ -9,6 +10,7 @@ class RosetteTranslation implements TranslationInterface
 {
     /**
      * The driver that is constructed in this class
+     *
      * @var string
      */
     protected $driver = 'rosette';
@@ -22,18 +24,21 @@ class RosetteTranslation implements TranslationInterface
 
     /**
      * The driver API url
+     *
      * @var string
      */
     protected $url;
 
     /**
      * The driver API KEY
+     *
      * @var string
      */
     protected $key;
 
     /**
      * The Client
+     *
      * @var Client
      */
     protected $client;
@@ -70,7 +75,7 @@ class RosetteTranslation implements TranslationInterface
 
         $requestUrl = $this->url;
         $translation = $this->handelRequest($requestUrl, $headers, $body);
-        $translation = $translation['translation'];
+        $translation = Arr::get($translation,'translation');
 
         return $translation;
     }
@@ -88,7 +93,7 @@ class RosetteTranslation implements TranslationInterface
     {
         $handle = $this->client->constructRequest($requestUrl, $headers, $body);
         $responseDecoded = $this->client->getResponse($handle);
-        $responseCode = $this->client->close($handle);
+        curl_getinfo($handle, CURLINFO_HTTP_CODE);
 
         return $responseDecoded;
     }
