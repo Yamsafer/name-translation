@@ -1,5 +1,5 @@
 {
-    "name": "Yamsafer/name-translation",
+    "name": "yamsafer/name-translation",
     "description":  "package to translate names with one of the two ways 1.Rosette 2.Google Translate",
     "require":  {
         "php": ">=5.6.4",
