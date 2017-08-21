@@ -67,5 +67,5 @@ You may also register the NameTranslation Facade:
 You can run the tests using the following command under the previously mentioned
 specifications:
 
-vendor/bin/phpunit tests/NameTranslation/TranslationTest.php
+      vendor/bin/phpunit tests/NameTranslation/TranslationTest.php
 
