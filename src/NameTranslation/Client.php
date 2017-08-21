@@ -2,7 +2,7 @@
 
 namespace NameTranslation;
 
-class Client1
+class Client
 {
     /**
      * Get the url for the given diver from the configuration file
@@ -27,7 +27,7 @@ class Client1
     {
         $key = $app['config']['name-translation.connections'][$driver]['key'];
         if (empty($key)) {
-            throw new Exception("API Key is not found");
+            throw new \Exception("API Key is not found");
         }
 
         return  $key;
