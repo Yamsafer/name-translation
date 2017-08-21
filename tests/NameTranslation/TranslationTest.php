@@ -29,7 +29,7 @@ class  TranslationTest extends \PHPUnit_Framework_TestCase
                     ],
                     'rosette'   => [
                         'url'   => 'https://api.rosette.com/rest/v1/name-translation',
-                        'key'   => '',
+                        'key'   => 'b7e589a5df9577f0f2b22a73d5a9b4a2',
                     ]
                 ],
             ]
