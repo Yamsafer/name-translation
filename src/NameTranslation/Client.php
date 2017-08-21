@@ -2,7 +2,7 @@
 
 namespace NameTranslation;
 
-class Client
+class Client1
 {
     /**
      * Get the url for the given diver from the configuration file
