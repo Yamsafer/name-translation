@@ -46,7 +46,7 @@ brew install php56-xdebug
 
 Install the package via composer:
 
-         composer require Yamsafer/name-translation
+         composer require yamsafer/name-translation
 
 Register the ServiceProvider in config/app.php
 
