@@ -52,14 +52,16 @@ Register the ServiceProvider in config/app.php
 
         'providers' => [
 		// [...]
-                Yamsafer\NameTranslation\TranslationServiceProvider::class,
+                NameTranslation\TranslationServiceProvider::class,
         ],
 You may also register the NameTranslation Facade:
 
         'aliases' => [
 		// [...]
-                'NameTranslation' => Yamsafer\NameTranslation\Facades\NameTranslationFacade::class,
+                'NameTranslation' => NameTranslation\Facades\NameTranslationFacade::class,
         ],
+
+Within your laravel project, when you execute Laravel's vendor:publish command, the configuration will be published.
 
 
 ## Run Tests
@@ -68,4 +70,8 @@ You can run the tests using the following command under the previously mentioned
 specifications:
 
       vendor/bin/phpunit tests/NameTranslation/TranslationTest.php
+
+Within your project you must assign the right directory as:
+
+      vendor/bin/phpunit yamsafer/name-translation/tests/NameTranslation/TranslationTest.php
 

@@ -29,7 +29,7 @@ class  TranslationTest extends \PHPUnit_Framework_TestCase
                     ],
                     'rosette'   => [
                         'url'   => 'https://api.rosette.com/rest/v1/name-translation',
-                        'key'   => '',
+                        'key'   => 'b7e589a5df9577f0f2b22a73d5a9b4a2',
                     ]
                 ],
             ]
@@ -53,20 +53,20 @@ class  TranslationTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($givenTranslation, $resultTranslation);
     }
 
-    /**
-     * Test the Other Connection as a parameter for the connection method
-     * And run the translate method with the chosen connection on the given name
-     *
-     * @return void
-     */
-    public function testOtherConnection_GoogleCanBeResolved()
-    {
-        $name = 'مانع سويحل النومسي'; // Mani' Suwayhil Alanawmisi
-        $givenTranslation='Antiseptic';
+    // /**
+    //  * Test the Other Connection as a parameter for the connection method
+    //  * And run the translate method with the chosen connection on the given name
+    //  *
+    //  * @return void
+    //  */
+    // public function testOtherConnection_GoogleCanBeResolved()
+    // {
+    //     $name = 'مانع سويحل النومسي'; // Mani' Suwayhil Alanawmisi
+    //     $givenTranslation='Antiseptic';
 
-        $driver = new TranslationManager($this->app);
+    //     $driver = new TranslationManager($this->app);
 
-        $resultTranslation = $driver->connection('Google')->translate($name);
-        $this->assertSame($givenTranslation, $resultTranslation);
-    }
+    //     $resultTranslation = $driver->connection('Google')->translate($name);
+    //     $this->assertSame($givenTranslation, $resultTranslation);
+    // }
 }

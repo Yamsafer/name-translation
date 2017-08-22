@@ -15,7 +15,7 @@ class TranslationServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../../config/name-translation.php' => config_path('name-translation.php'),
+            __DIR__.'/../config/name-translation.php' => config_path('name-translation.php'),
         ]);
     }
 
@@ -26,10 +26,6 @@ class TranslationServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $packageConfigFile = __DIR__.'/../../config/name-translation.php';
-        $this->mergeConfigFrom(
-            $packageConfigFile, 'name-translation'
-        );
         $this->registerManager();
     }
 
@@ -41,7 +37,7 @@ class TranslationServiceProvider extends ServiceProvider
     protected function registerManager()
     {
         $this->app->singleton('name-translation', function ($app) {
-            return new NameTranslation\TranslationManager($app);
+            return new \NameTranslation\TranslationManager($app);
         });
     }
 }
